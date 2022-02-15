@@ -1,0 +1,45 @@
+﻿@page
+@model PresentationLayer_App.Pages.ImageModel
+@using System.Web.Helpers;
+@using System.IO;
+@{
+    ViewData["Title"] = "Image";
+
+    WebImage photo = null;
+    var newFileName = "";
+    var imagePath = "";
+
+    photo = WebImage.GetImageFromRequest();
+    if (photo != null)
+    {
+        string x = photo.FileName;
+        newFileName = Guid.NewGuid().ToString() + "_" +
+        Path.GetFileName(x);
+        imagePath = @"images\" + newFileName;
+
+        photo.Save(@"~\" + imagePath);
+    }
+}
+
+<fieldset class="container">
+    <legend align="center" class="text-uppercase">→ image form ←</legend>
+    <div class="container" id="LogIn_Form" align="justify">
+        <form asp-page-handler="" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="controlFile">Subir archivo:</label>
+                <input type="file" class="form-control-file" id="controlFile" required>
+            </div>
+            <div class="form-group" style="font: bold; font-size: large;">
+                <input type="submit" class="btn btn-outline-success btn-primary" value="Subir" />
+            </div>
+        </form>
+
+        @if (imagePath != "")
+        {
+            <div class="result">
+                <img src="@imagePath" alt="image" />
+
+            </div>
+        }
+    </div>
+</fieldset>
