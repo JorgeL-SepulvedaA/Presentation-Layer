@@ -44,7 +44,6 @@
 
         footer {
             border-radius: 10px;
-            margin-top: 3%;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             font-size: medium;
             padding: 5px;
@@ -62,6 +61,7 @@
         #introLayer {
             border-radius: 10px;
             margin-top: 3%;
+            margin-bottom: 3%;
             width: 90%;
             height: 60%;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -75,7 +75,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" asp-page="Index">
                     <img src="https://cdn.icon-icons.com/icons2/3178/PNG/128/coding_computer_pc_screen_code_icon_193925.png" width="30" height="30" alt="">
                 </a>
                 <a class="navbar-brand text-uppercase" asp-area="" asp-page="Index">Home</a>
@@ -86,13 +86,13 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="Greetings">Hello, world!</a>
+                            <a class="nav-link text-secondary" asp-area="" asp-page="Greetings">Hello, world!</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="Form">Form example</a>
+                            <a class="nav-link text-secondary" asp-area="" asp-page="Form">Form example</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="Image">Image example</a>
+                            <a class="nav-link text-secondary" asp-area="" asp-page="Image">Image example</a>
                         </li>
                     </ul>
                 </div>
@@ -104,6 +104,8 @@
             @RenderBody()
         </main>
     </div>
+
+    <br />
 
     <footer class="border-top footer text-muted">
         <div class="container">

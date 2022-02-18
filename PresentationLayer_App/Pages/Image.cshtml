@@ -1,45 +1,23 @@
 ﻿@page
 @model PresentationLayer_App.Pages.ImageModel
-@using System.Web.Helpers;
-@using System.IO;
 @{
     ViewData["Title"] = "Image";
-
-    WebImage photo = null;
-    var newFileName = "";
-    var imagePath = "";
-
-    photo = WebImage.GetImageFromRequest();
-    if (photo != null)
-    {
-        string x = photo.FileName;
-        newFileName = Guid.NewGuid().ToString() + "_" +
-        Path.GetFileName(x);
-        imagePath = @"images\" + newFileName;
-
-        photo.Save(@"~\" + imagePath);
-    }
 }
-
 <fieldset class="container">
-    <legend align="center" class="text-uppercase">→ image form ←</legend>
-    <div class="container" id="LogIn_Form" align="justify">
-        <form asp-page-handler="" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="controlFile">Subir archivo:</label>
-                <input type="file" class="form-control-file" id="controlFile" required>
-            </div>
-            <div class="form-group" style="font: bold; font-size: large;">
-                <input type="submit" class="btn btn-outline-success btn-primary" value="Subir" />
-            </div>
-        </form>
+    <legend align="center" class="text-uppercase">→ image display ←</legend>
 
-        @if (imagePath != "")
-        {
-            <div class="result">
-                <img src="@imagePath" alt="image" />
-
+    <div class="container" id="Image_Form" align="center">
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-white p-4">
+                    <img src="https://user-images.githubusercontent.com/22680912/46479049-d8a9c400-c80b-11e8-92a1-89fc10701f4a.jpg" style="margin-right: 5px; border-radius: 5px; margin-top: 8px;" width="750" height="350" align="middle" />
+                </div>
             </div>
-        }
+            <nav class="navbar navbar-white bg-white">
+                <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" >
+                    <span class="navbar-toggler-icon text-secondary">&#8595;</span>
+                </button>
+            </nav>
+        </div>
     </div>
 </fieldset>
